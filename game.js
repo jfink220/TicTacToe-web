@@ -12,23 +12,27 @@ board.after(endMessage)
 let isWon = false;
 
 const winning_combinations = [
-  [0,1,2],
-  [3,4,5],
-  [6,7,8],
-  [0,2,6,8],
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+    [0,2,6,8]
 ]
 
 function checkWin(currentPlayer){
   for(let i=0; i < winning_combinations.length;i++){
-    console.log(winning_combinations.length)
-    if(winning_combinations.length == 3){
+    if(winning_combinations[i].length == 4){
       const [a,b,c] = winning_combinations[i]
       if(squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer){
         isWon = true
         return true
       }
     }
-    else if(winning_combinations.length == 4){
+    else if(winning_combinations[i].length == 3){
       const [a,b,c] = winning_combinations[i]
       if(squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer){
         isWon = true
