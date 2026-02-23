@@ -46,3 +46,7 @@ h1{
   background-color: #000000;
   color:#FFFFFF;
 }
+
+.QRcode{
+  display: flex;
+}

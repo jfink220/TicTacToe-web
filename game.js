@@ -4,6 +4,10 @@ const players = ['X','O']
 let currentPlayer = players[0]
 
 const endMessage = document.createElement('h2')
+
+const myImage = new Image(100, 200);
+myImage.src = "puppypicture.jpeg";
+
 endMessage.textContent = `X's Turn!`
 endMessage.style.marginTop = '30px'
 endMessage.style.textAlign = 'center'
@@ -26,8 +30,8 @@ const winning_combinations = [
 function checkWin(currentPlayer){
   for(let i=0; i < winning_combinations.length;i++){
     if(winning_combinations[i].length == 4){
-      const [a,b,c] = winning_combinations[i]
-      if(squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer){
+      const [a,b,c,d] = winning_combinations[i]
+      if(squares[a].textContent === currentPlayer && squares[b].textContent === currentPlayer && squares[c].textContent === currentPlayer && squares[d].textContent == currentPlayer){
         isWon = true
         return true
       }
@@ -57,6 +61,7 @@ function restartButton(){
   for(let i = 0; i < squares.length; i++){
     squares[i].textContent = ""
   }
+  myImage.remove();
   endMessage.textContent = `X's turn!`
   isWon = false
   currentPlayer = players[0]
@@ -71,6 +76,7 @@ for(let i=0;i < squares.length; i++){
       squares[i].textContent = currentPlayer
       if(checkWin(currentPlayer)){
         endMessage.textContent = `Game over! ${currentPlayer} wins!`
+        document.body.appendChild(myImage);
         return
       }
       if(checkTie()){
