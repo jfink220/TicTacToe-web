@@ -76,7 +76,7 @@ for(let i=0;i < squares.length; i++){
       squares[i].textContent = currentPlayer
       if(checkWin(currentPlayer)){
         endMessage.textContent = `Game over! ${currentPlayer} wins!`
-        document.body.appendChild(myImage);
+        document.getElementById("endGame").appendChild(myImage);
         return
       }
       if(checkTie()){
